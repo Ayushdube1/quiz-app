@@ -31,6 +31,22 @@ export default function Self() {
     }
       
   }
+  let next=()=>{
+    if(lock===true){
+      if(index===data.length-1){
+        setResult(!result);
+        return 0;
+      }
+      setIndex(++index);
+      setQuestion(data[index]);
+      setLock(false);
+      option_array.map((elem)=>{
+        elem.current.classList.remove("correct");
+        elem.current.classList.remove("wrong");
+        return null;
+      })
+    }
+  }
 
   return (
     <div className ="container">
@@ -43,7 +59,7 @@ export default function Self() {
         <li ref ={option3} onClick ={(e)=>{checkAns(e,3)}}>{question.option3}</li>
         <li ref ={option4} onClick ={(e)=>{checkAns(e,4)}}>{question.option4}</li>
       </ul>
-      <button>Next</button>
+      <button onClick={next}>Next</button>
       <div className="index">{index+1} of {data.length} questions.</div>
     </div>
   )
