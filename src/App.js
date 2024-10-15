@@ -1,9 +1,10 @@
 import React from 'react'
+import Self from './Self'
 
 export default function App() {
   return (
     <div>
-      <h1>initial stage</h1>
+      <Self/>
     </div>
   )
 }
