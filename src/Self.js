@@ -16,14 +16,22 @@ export default function Self() {
   let option_array= [option1,option2,option3,option4];
 
   let checkAns =(e,ans)=>{
+    if(lock===false){
       if(question.ans===ans){
         e.target.classList.add("correct");
+        setLock(true);
+        setScore(score+1);
 
       }
       else{
         e.target.classList.add("wrong");
+        setLock(true);
+        option_array[question.ans-1].current.classList.add("correct");
       }
+    }
+      
   }
+
   return (
     <div className ="container">
       <h1>Quiz App</h1>
